@@ -20,10 +20,13 @@ def read_xmlfile2dict(xml_file):
         'image_size_depth': int(root.find('size').find('depth').text),
         'op_defect_name': root.find('object').find('name').text,
         'subfolder': root.find('folder').text,
+        'real_subfolder': xml_file.split('/')[-2],
         'pose': root.find('object').find('pose').text,
         'xmin': root.find('object').find('bndbox').find('xmin').text,
         'xmax': root.find('object').find('bndbox').find('xmax').text,
         'ymin': root.find('object').find('bndbox').find('ymin').text,
         'ymax': root.find('object').find('bndbox').find('xmax').text,
+        'path': str(xml_file).split('/')[5],
+        'label': str(xml_file).split('/')[7],
     }
     return record
